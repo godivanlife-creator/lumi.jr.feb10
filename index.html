@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello, 我是 Lumi！</title>
+    <style>
+        :root {
+            --lumi-purple: #BDB2FF; /* 溫柔的莫蘭迪紫 */
+            --lumi-bg: #F8F7FF;
+            --btn-sms: #007aff;
+        }
+
+        body {
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--lumi-bg);
+            color: #4a4a4a;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 40px;
+            box-shadow: 0 15px 35px rgba(189, 178, 255, 0.2);
+            padding: 30px;
+            max-width: 420px;
+            margin: 20px auto;
+            border: 2px solid #EEE;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 5px solid #FFF;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        h1 { color: #7B61FF; margin-bottom: 5px; font-size: 28px; }
+        .tagline { color: #AAA; font-size: 14px; margin-bottom: 20px; letter-spacing: 1px; }
+
+        .btn {
+            display: block;
+            padding: 16px;
+            margin: 12px 0;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            box-sizing: border-box;
+        }
+
+        .btn-sms {
+            background: var(--btn-sms);
+            color: white;
+            box-shadow: 0 6px 15px rgba(0, 122, 255, 0.3);
+        }
+
+        .btn-call {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .btn:active { transform: scale(0.96); }
+
+        .info-card {
+            background: #FAFAFA;
+            padding: 20px;
+            border-radius: 20px;
+            text-align: left;
+            margin: 25px 0;
+            border-left: 5px solid var(--lumi-purple);
+        }
+
+        .info-item { margin-bottom: 10px; font-size: 15px; line-height: 1.6; }
+        .info-item strong { color: #7B61FF; }
+
+        .instagram-link {
+            display: block;
+            margin: 20px auto;
+            padding: 15px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #7B61FF;
+            font-weight: bold;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://instagram.fkhh1-1.fna.fbcdn.net/v/t51.82787-15/518240533_17855163105469448_8024057277085895287_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=105&ig_cache_key=MzY3NjQ1NTk5MDkyODUzMTYxNA%3D%3D.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=6j3qD_y88DMQ7kNvwGBXcMe&_nc_oc=AdnoukgVGFVHCOsTPLD1CN4mC6ZerSAZujAizKmWntBLdGsbkSAtJhvRKcTCLEu3rkY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=instagram.fkhh1-1.fna&_nc_gid=q9bdg_sN9VTmvrqOVAuOdQ&oh=00_AfspVJJ825uA2aU7Nfk_a6HfM48bxcpjxNBnjtm-9QTB4Q&oe=699DB492" alt="Lumi" class="profile-img">
+        
+        <h1>我是 Lumi</h1>
+        <p class="tagline">GodiVanLife 智慧守護專卡</p>
+
+        <div class="info-card">
+            <div class="info-item">🐾 <strong>特色：</strong>溫柔偏 I，喜歡自己探索、愛吃零食</div>
+            <div class="info-item">⚠️ <strong>注意：</strong>喜歡溫和互動，不喜歡爆衝型狗狗</div>
+        </div>
+
+        <button class="btn btn-sms" onclick="sendSMSLocation()">📍 即時定位回傳</button>
+        <div id="loadingText" class="loading">正在取得精確定位...</div>
+
+        <a href="tel:0979311629" class="btn btn-call">📞 撥打電話 1</a>
+        <a href="tel:0928573630" class="btn btn-call" style="background:#81C784; margin-top:5px;">📞 撥打電話 2</a>
+
+        <a href="https://www.instagram.com/lumi.jr.feb10?igsh=MW9ocjd6NGg0aHUxOA==" target="_blank" class="instagram-link">
+            看我的日常 IG 📸
+        </a>
+        
+        <p style="font-size: 11px; color: #CCC; margin-top: 30px; letter-spacing: 2px;">
+            POWERED BY GODIVANLIFE
+        </p>
+    </div>
+
+    <script>
+        function sendSMSLocation() {
+            const loading = document.getElementById('loadingText');
+            loading.style.display = 'block';
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    const mapUrl = "google.com/maps?q=lat,lng0" + lat + "," + lng;
+                    
+                    const phoneNumber = "0979311629"; // 預設發送至主電話
+                    const message = encodeURIComponent("【Lumi 尋寵通報】我發現了 Lumi！目前位置：" + mapUrl);
+                    
+                    window.location.href = "sms:" + phoneNumber + "?body=" + message;
+                    loading.style.display = 'none';
+                }, (error) => {
+                    loading.style.display = 'none';
+                    alert("無法取得精確定位，將直接開啟簡訊對話。");
+                    window.location.href = "sms:0979311629?body=" + encodeURIComponent("【Lumi 尋寵通報】我發現了 Lumi，請與我聯繫。");
+                }, { enableHighAccuracy: true, timeout: 8000 });
+            } else {
+                alert("您的裝置不支援定位功能。");
+                loading.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
