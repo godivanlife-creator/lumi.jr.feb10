@@ -6,7 +6,7 @@
     <title>Hello, 我是 Lumi！</title>
     <style>
         :root {
-            --lumi-color: #BDB2FF; /* 溫柔的莫蘭迪紫 */
+            --lumi-purple: #BDB2FF; /* 溫柔的莫蘭迪紫 */
             --lumi-bg: #F8F7FF;
             --btn-sms: #007aff;
         }
@@ -45,7 +45,9 @@
         .tagline { color: #AAA; font-size: 14px; margin-bottom: 20px; letter-spacing: 1px; }
 
         .btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 16px;
             margin: 12px 0;
             border-radius: 35px;
@@ -57,6 +59,7 @@
             width: 100%;
             font-size: 18px;
             box-sizing: border-box;
+            gap: 8px;
         }
 
         .btn-sms {
@@ -78,7 +81,7 @@
             border-radius: 20px;
             text-align: left;
             margin: 25px 0;
-            border-left: 5px solid var(--lumi-color);
+            border-left: 5px solid var(--lumi-purple);
         }
 
         .info-item { margin-bottom: 10px; font-size: 15px; line-height: 1.6; }
@@ -113,13 +116,13 @@
 <body>
 
     <div class="container">
-        <img src="https://drive.google.com/uc?id=11Sp87cmW31BkL1p22oyudEqzzBezMGk0" alt="Lumi" class="profile-img">
+        <img src="https://drive.google.com/uc?export=view&id=11Sp87cmW31BkL1p22oyudEqzzBezMGk0" alt="Lumi" class="profile-img">
         
         <h1>我是 Lumi</h1>
         <p class="tagline">GodiVanLife 智慧守護專卡</p>
 
         <div class="info-card">
-            <div class="info-item">🐾 <strong>關於我：</strong>溫柔偏 I，喜歡自己探索、愛吃零食。</div>
+            <div class="info-item">🐾 <strong>特色：</strong>溫柔偏 I，喜歡自己探索、愛吃零食。</div>
             <div class="info-item">⚠️ <strong>注意：</strong>喜歡溫和互動，不喜歡爆衝型狗狗。</div>
         </div>
 
@@ -147,6 +150,7 @@
                 navigator.geolocation.getCurrentPosition((position) => {
                     const lat = position.coords.latitude;
                     const lng = position.coords.longitude;
+                    // 精確的 Google Maps 座標格式
                     const mapUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
                     
                     const phoneNumber = "0979311629"; 
@@ -156,7 +160,7 @@
                     loading.style.display = 'none';
                 }, (error) => {
                     loading.style.display = 'none';
-                    alert("無法取得精確定位，將直接開啟簡訊。");
+                    alert("定位失敗，將直接開啟簡訊。");
                     window.location.href = "sms:0979311629?body=" + encodeURIComponent("【Lumi 尋寵通報】我發現了 Lumi，請與我聯繫。");
                 }, { enableHighAccuracy: true, timeout: 8000 });
             } else {
