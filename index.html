@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, 我是 Gaga！</title>
+    <title>Hello, 我是 Lumi！</title>
     <style>
         :root {
-            --gaga-color: #BDB2FF; /* 溫柔的莫蘭迪紫 */
-            --gaga-bg: #F8F7FF;
+            --lumi-color: #BDB2FF; /* 溫柔的莫蘭迪紫 */
+            --lumi-bg: #F8F7FF;
             --btn-sms: #007aff;
         }
 
@@ -15,7 +15,7 @@
             font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: var(--gaga-bg);
+            background-color: var(--lumi-bg);
             color: #4a4a4a;
             text-align: center;
         }
@@ -78,7 +78,7 @@
             border-radius: 20px;
             text-align: left;
             margin: 25px 0;
-            border-left: 5px solid var(--gaga-color);
+            border-left: 5px solid var(--lumi-color);
         }
 
         .info-item { margin-bottom: 10px; font-size: 15px; line-height: 1.6; }
@@ -113,23 +113,23 @@
 <body>
 
     <div class="container">
-        <img src="https://drive.google.com/uc?id=11Sp87cmW31BkL1p22oyudEqzzBezMGk0" alt="Gaga" class="profile-img">
+        <img src="https://drive.google.com/uc?id=11Sp87cmW31BkL1p22oyudEqzzBezMGk0" alt="Lumi" class="profile-img">
         
-        <h1>我是 Gaga 🫶</h1>
+        <h1>我是 Lumi</h1>
         <p class="tagline">GodiVanLife 智慧守護專卡</p>
 
         <div class="info-card">
-            <div class="info-item">🐾 <strong>關於我：</strong>年紀較大，個性溫和、喜歡安靜陪伴。</div>
-            <div class="info-item">👂 <strong>特別注意：</strong>已經聽不到聲音，也有輕微失智。</div>
-            <div class="info-item">⚠️ <strong>互動：</strong>請不要突然觸摸，容易被嚇到緊張。請溫柔靠近，讓我先看到你。</div>
+            <div class="info-item">🐾 <strong>關於我：</strong>溫柔偏 I，喜歡自己探索、愛吃零食。</div>
+            <div class="info-item">⚠️ <strong>注意：</strong>喜歡溫和互動，不喜歡爆衝型狗狗。</div>
         </div>
 
         <button class="btn btn-sms" onclick="sendSMSLocation()">📍 即時定位回傳</button>
         <div id="loadingText" class="loading">正在取得精確定位...</div>
 
-        <a href="tel:0920121273" class="btn btn-call">📞 撥打緊急電話</a>
+        <a href="tel:0979311629" class="btn btn-call">📞 撥打電話 1</a>
+        <a href="tel:0928573630" class="btn btn-call" style="background:#81C784; margin-top:5px;">📞 撥打電話 2</a>
 
-        <a href="https://www.instagram.com/sweet_three_doggies?igsh=ajYxbHNyeDhydGt1" target="_blank" class="instagram-link">
+        <a href="https://www.instagram.com/lumi.jr.feb10?igsh=MW9ocjd6NGg0aHUxOA==" target="_blank" class="instagram-link">
             看我的日常 IG 📸
         </a>
         
@@ -147,17 +147,17 @@
                 navigator.geolocation.getCurrentPosition((position) => {
                     const lat = position.coords.latitude;
                     const lng = position.coords.longitude;
-                    const mapUrl = "http://maps.google.com/maps?q=" + lat + "," + lng;
+                    const mapUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
                     
-                    const phoneNumber = "0920121273"; 
-                    const message = encodeURIComponent("【Gaga 尋寵通報】我發現了 Gaga！目前位置：" + mapUrl);
+                    const phoneNumber = "0979311629"; 
+                    const message = encodeURIComponent("【Lumi 尋寵通報】我發現了 Lumi！目前位置：" + mapUrl);
                     
                     window.location.href = "sms:" + phoneNumber + "?body=" + message;
                     loading.style.display = 'none';
                 }, (error) => {
                     loading.style.display = 'none';
                     alert("無法取得精確定位，將直接開啟簡訊。");
-                    window.location.href = "sms:0920121273?body=" + encodeURIComponent("【Gaga 尋寵通報】我發現了 Gaga，請與我聯繫。");
+                    window.location.href = "sms:0979311629?body=" + encodeURIComponent("【Lumi 尋寵通報】我發現了 Lumi，請與我聯繫。");
                 }, { enableHighAccuracy: true, timeout: 8000 });
             } else {
                 alert("您的裝置不支援定位功能。");
