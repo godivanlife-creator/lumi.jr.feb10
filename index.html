@@ -1,172 +1,402 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, 我是 Lumi！</title>
-    <style>
-        :root {
-            --lumi-purple: #BDB2FF;
-            --lumi-bg: #F8F7FF;
-            --btn-sms: #007aff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumi 🐾</title>
 
-        body {
-            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: var(--lumi-bg);
-            color: #4a4a4a;
-            text-align: center;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=DM+Sans:wght@400;500&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
 
-        .container {
-            background-color: #ffffff;
-            border-radius: 40px;
-            box-shadow: 0 15px 35px rgba(189, 178, 255, 0.2);
-            padding: 30px;
-            max-width: 420px;
-            margin: 20px auto;
-            border: 2px solid #EEE;
-            animation: slideUp 0.8s ease-out;
-        }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid #FFF;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
+:root{
+  --cream:#f4f6fb;
+  --warm:#e4eaf7;
+  --sand:#8aa0cc;
+  --dark:#0e1830;
+  --accent:#3a5fc8;
+  --accent2:#6080e0;
+}
 
-        h1 { color: #7B61FF; margin-bottom: 5px; font-size: 28px; }
-        .tagline { color: #AAA; font-size: 14px; margin-bottom: 20px; letter-spacing: 1px; }
+body{
+  background:var(--cream);
+  font-family:'DM Sans','Noto Sans JP',sans-serif;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+}
 
-        .btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-            margin: 12px 0;
-            border-radius: 35px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            font-size: 18px;
-            box-sizing: border-box;
-            gap: 8px;
-        }
+/* ─── 語言列 ─── */
+.lang-bar{
+  position:fixed;
+  top:14px;
+  right:14px;
+  display:flex;
+  gap:6px;
+  z-index:100;
+}
+.lang-btn{
+  padding:6px 12px;
+  border-radius:99px;
+  border:none;
+  background:rgba(0,0,0,0.35);
+  color:#fff;
+  cursor:pointer;
+  font-size:0.8rem;
+  backdrop-filter:blur(6px);
+  transition:background 0.2s,color 0.2s;
+}
+.lang-btn.active{
+  background:#fff;
+  color:var(--accent);
+  font-weight:600;
+}
 
-        .btn-sms {
-            background: var(--btn-sms);
-            color: white;
-            box-shadow: 0 6px 15px rgba(0, 122, 255, 0.3);
-        }
+/* ─── HERO ─── */
+.hero{
+  width:100%;
+  text-align:center;
+  padding:60px 20px 28px;
+  background:linear-gradient(160deg,#0e1830,#1e3480,#3a5fc8,#6080e0);
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:"✨";
+  position:absolute;
+  font-size:150px;
+  opacity:0.07;
+  left:-20px;
+  bottom:-20px;
+  transform:rotate(-10deg);
+}
+.hero::after{
+  content:"🐾";
+  position:absolute;
+  font-size:110px;
+  opacity:0.06;
+  right:-10px;
+  top:-10px;
+  transform:rotate(20deg);
+}
 
-        .btn-call {
-            background: #4CAF50;
-            color: white;
-        }
+.avatar-ring{
+  width:124px;
+  height:124px;
+  border-radius:50%;
+  overflow:hidden;
+  margin:auto;
+  border:4px solid rgba(255,255,255,0.45);
+  box-shadow:0 12px 36px rgba(0,0,0,0.3);
+  animation:pop 0.55s cubic-bezier(0.34,1.56,0.64,1);
+}
+.avatar-ring img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+@keyframes pop{
+  from{transform:scale(0.6);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
 
-        .btn:active { transform: scale(0.96); }
+.hero-name{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;
+  margin-top:12px;
+  letter-spacing:0.02em;
+}
+.hero-sub{
+  font-size:0.85rem;
+  opacity:0.7;
+  margin-top:4px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.hero-warning{
+  margin:16px auto 0;
+  max-width:340px;
+  background:rgba(0,0,0,0.25);
+  border:1.5px solid rgba(255,255,255,0.25);
+  border-radius:12px;
+  padding:12px 16px;
+  font-size:0.88rem;
+  font-weight:600;
+  line-height:1.5;
+  backdrop-filter:blur(4px);
+}
 
-        .info-card {
-            background: #FAFAFA;
-            padding: 20px;
-            border-radius: 20px;
-            text-align: left;
-            margin: 25px 0;
-            border-left: 5px solid var(--lumi-purple);
-        }
+/* ─── 卡片區 ─── */
+.card-wrap{
+  max-width:420px;
+  width:100%;
+  padding:16px 16px 40px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
 
-        .info-item { margin-bottom: 10px; font-size: 15px; line-height: 1.6; }
-        .info-item strong { color: #7B61FF; }
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 4px 18px rgba(0,0,0,0.07);
+}
 
-        .instagram-link {
-            display: block;
-            margin: 20px auto;
-            padding: 15px;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 16px;
-        }
+.info-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.info-item{
+  background:var(--cream);
+  border-radius:12px;
+  padding:14px;
+}
+.info-label{
+  font-size:0.7rem;
+  color:var(--sand);
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  margin-bottom:4px;
+}
+.info-value{
+  font-size:0.95rem;
+  color:var(--dark);
+  font-weight:500;
+  line-height:1.4;
+}
+.personality-card{
+  background:var(--cream);
+  border-radius:12px;
+  padding:14px;
+  margin-top:10px;
+}
+.alert-card{
+  background:#eef2ff;
+  border:1.5px solid #a0b0e8;
+  border-radius:12px;
+  padding:14px;
+  margin-top:10px;
+  font-size:0.92rem;
+  color:#2a3a80;
+  font-weight:500;
+  line-height:1.5;
+}
 
-        .loading {
-            display: none;
-            margin-top: 10px;
-            font-size: 14px;
-            color: #7B61FF;
-            font-weight: bold;
-        }
+.btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  padding:16px;
+  border-radius:14px;
+  text-decoration:none;
+  font-weight:500;
+  font-size:1rem;
+  transition:opacity 0.15s,transform 0.15s;
+  cursor:pointer;
+  border:none;
+  width:100%;
+}
+.btn:active{opacity:0.85;transform:scale(0.98);}
+.btn-primary{background:var(--accent);color:#fff;}
+.btn-secondary{background:#1e3480;color:#fff;}
+.btn-ig{
+  background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  color:#fff;
+}
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+.gps-card{
+  background:linear-gradient(135deg,#0e1830,#1e3480);
+  color:#fff;
+  padding:20px;
+  border-radius:18px;
+}
+.gps-desc{
+  font-size:0.88rem;
+  opacity:0.8;
+  margin-bottom:12px;
+}
+.btn-gps{
+  background:rgba(255,255,255,0.15);
+  color:#fff;
+  border:1.5px solid rgba(255,255,255,0.3);
+  backdrop-filter:blur(4px);
+}
+
+.fade{animation:fadeIn 0.3s ease;}
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(8px);}
+  to{opacity:1;transform:translateY(0);}
+}
+</style>
+
 </head>
 <body>
 
-    <div class="container">
-        <img src="https://raw.githubusercontent.com/godivanlife-creator/lelesister/main/CDCC27F4-03B7-40D0-8DB3-EF08972271AA.jpg" alt="Lumi" class="profile-img">
-        
-        <h1>我是 Lumi</h1>
-        <p class="tagline">GodiVanLife 智慧守護專卡</p>
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('zh',this)">中</button>
+  <button class="lang-btn" onclick="setLang('en',this)">EN</button>
+  <button class="lang-btn" onclick="setLang('ja',this)">日</button>
+</div>
 
-        <div class="info-card">
-            <div class="info-item">🐾 <strong>特色：</strong>溫柔偏 I，喜歡自己探索、愛吃零食。</div>
-            <div class="info-item">⚠️ <strong>注意：</strong>喜歡溫和互動，不喜歡爆衝型狗狗。</div>
-        </div>
+<div class="hero">
+  <div class="avatar-ring">
+    <img src="https://raw.githubusercontent.com/godivanlife-creator/lelesister/main/CDCC27F4-03B7-40D0-8DB3-EF08972271AA.jpg" alt="Lumi">
+  </div>
+  <div class="hero-name">Lumi</div>
+  <div class="hero-sub">GodiVanLife Pet Tag</div>
+  <div class="hero-warning" id="t-warning"></div>
+</div>
 
-        <button class="btn btn-sms" onclick="sendSMSLocation()">📍 即時定位回傳</button>
-        <div id="loadingText" class="loading">正在取得精確定位...</div>
+<div class="card-wrap" id="wrap">
 
-        <a href="tel:0979311629" class="btn btn-call">📞 撥打電話 1</a>
-        <a href="tel:0928573630" class="btn btn-call" style="background:#81C784; margin-top:5px;">📞 撥打電話 2</a>
-
-        <a href="https://www.instagram.com/lumi.jr.feb10?igsh=MW9ocjd6NGg0aHUxOA==" target="_blank" class="instagram-link">
-            看我的日常 IG 📸
-        </a>
-        
-        <p style="font-size: 11px; color: #CCC; margin-top: 30px; letter-spacing: 2px;">
-            POWERED BY GODIVANLIFE
-        </p>
+  <div class="card">
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="info-label" id="t-trait-label"></div>
+        <div class="info-value" id="t-trait"></div>
+      </div>
+      <div class="info-item">
+        <div class="info-label" id="t-hobby-label"></div>
+        <div class="info-value" id="t-hobby"></div>
+      </div>
     </div>
+    <div class="personality-card">
+      <div class="info-label" id="t-personality-label"></div>
+      <div class="info-value" id="t-personality"></div>
+    </div>
+    <div class="alert-card" id="t-alert"></div>
+  </div>
 
-    <script>
-        function sendSMSLocation() {
-            const loading = document.getElementById('loadingText');
-            loading.style.display = 'block';
+<a class="btn btn-primary" href="tel:0979311629" id="t-call1"></a>
+<a class="btn btn-secondary" href="tel:0928573630" id="t-call2"></a>
 
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((position) => {
-                    const lat = position.coords.latitude;
-                    const lng = position.coords.longitude;
-                    const mapUrl = "https://www.google.com/maps?q=" + lat + "," + lng;
-                    
-                    const phoneNumber = "0979311629"; 
-                    const message = encodeURIComponent("【Lumi 尋寵通報】我發現了 Lumi！目前位置：" + mapUrl);
-                    
-                    window.location.href = "sms:" + phoneNumber + "?body=" + message;
-                    loading.style.display = 'none';
-                }, (error) => {
-                    loading.style.display = 'none';
-                    alert("定位失敗，將直接開啟簡訊。");
-                    window.location.href = "sms:0979311629?body=" + encodeURIComponent("【Lumi 尋寵通報】我發現了 Lumi，請與我聯繫。");
-                }, { enableHighAccuracy: true, timeout: 8000 });
-            } else {
-                alert("您的裝置不支援定位功能。");
-                loading.style.display = 'none';
-            }
-        }
-    </script>
+  <div class="gps-card">
+    <p class="gps-desc" id="t-gps-desc"></p>
+    <button class="btn btn-gps" id="gps-btn" onclick="sendGPS()"></button>
+  </div>
+
+<a class="btn btn-ig" href="https://www.instagram.com/lumi.jr.feb10?igsh=MW9ocjd6NGg0aHUxOA==" target="_blank" id="t-ig"></a>
+
+</div>
+
+<script>
+const i18n={
+  zh:{
+    warning:"📍 Lumi 迷路了！請幫忙回報位置 🥺",
+    traitLabel:"🐾 個性",
+    trait:"溫柔偏 I · 愛探索",
+    hobbyLabel:"🍬 最愛",
+    hobby:"吃零食！",
+    personalityLabel:"✨ 關於 Lumi",
+    personality:"溫柔安靜，喜歡用自己的步調探索世界，超級愛吃零食 🍪",
+    alert:"⚠️ 注意：喜歡溫和互動，不喜歡爆衝型狗狗，請保持距離",
+    call1:"📞 聯絡主人 1",
+    call2:"📞 聯絡主人 2",
+    gpsDesc:"發現 Lumi 了嗎？請點擊下方按鈕回報位置給主人",
+    gpsBtn:"📍 立即回報位置",
+    gpsLoading:"定位中...",
+    gpsError:"定位失敗，請重試",
+    ig:"📸 看 Lumi 的 IG 日常"
+  },
+  en:{
+    warning:"📍 Lumi is lost! Please help report the location 🥺",
+    traitLabel:"🐾 Personality",
+    trait:"Gentle · Introverted",
+    hobbyLabel:"🍬 Favorite",
+    hobby:"Snacks!",
+    personalityLabel:"✨ About Lumi",
+    personality:"Quiet and gentle, loves exploring at her own pace, and is absolutely obsessed with snacks 🍪",
+    alert:"⚠️ Note: Prefers calm interactions — please keep hyper or rushing dogs at a distance",
+    call1:"📞 Call Owner 1",
+    call2:"📞 Call Owner 2",
+    gpsDesc:"Found Lumi? Please send your location to the owner",
+    gpsBtn:"📍 Send Location Now",
+    gpsLoading:"Getting location...",
+    gpsError:"Location failed, please retry",
+    ig:"📸 Lumi on Instagram"
+  },
+  ja:{
+    warning:"📍 Lumiが迷子になりました！位置情報を送ってください 🥺",
+    traitLabel:"🐾 性格",
+    trait:"穏やか · 内向的",
+    hobbyLabel:"🍬 大好き",
+    hobby:"おやつ！",
+    personalityLabel:"✨ Lumiについて",
+    personality:"おとなしくて優しく、自分のペースで探索するのが好き。おやつが大大大好き 🍪",
+    alert:"⚠️ 注意：穏やかな交流が好きです。興奮した犬や突進してくる犬は苦手なので距離を保ってください",
+    call1:"📞 飼い主1に電話",
+    call2:"📞 飼い主2に電話",
+    gpsDesc:"Lumiを見つけたら、位置情報を飼い主に送ってください",
+    gpsBtn:"📍 今すぐ位置を送る",
+    gpsLoading:"取得中...",
+    gpsError:"失敗しました",
+    ig:"📸 インスタグラムを見る"
+  }
+};
+
+let lang='zh';
+
+function applyLang(){
+  const t=i18n[lang];
+  document.getElementById("t-warning").innerText=t.warning;
+  document.getElementById("t-trait-label").innerText=t.traitLabel;
+  document.getElementById("t-trait").innerText=t.trait;
+  document.getElementById("t-hobby-label").innerText=t.hobbyLabel;
+  document.getElementById("t-hobby").innerText=t.hobby;
+  document.getElementById("t-personality-label").innerText=t.personalityLabel;
+  document.getElementById("t-personality").innerText=t.personality;
+  document.getElementById("t-alert").innerText=t.alert;
+  document.getElementById("t-call1").innerText=t.call1;
+  document.getElementById("t-call2").innerText=t.call2;
+  document.getElementById("t-gps-desc").innerText=t.gpsDesc;
+  document.getElementById("gps-btn").innerText=t.gpsBtn;
+  document.getElementById("t-ig").innerText=t.ig;
+}
+
+function setLang(l,el){
+  lang=l;
+  applyLang();
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  const wrap=document.getElementById("wrap");
+  wrap.classList.remove("fade");
+  void wrap.offsetWidth;
+  wrap.classList.add("fade");
+}
+
+applyLang();
+
+function sendGPS(){
+  const btn=document.getElementById("gps-btn");
+  const t=i18n[lang];
+  btn.innerText=t.gpsLoading;
+  btn.disabled=true;
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const lat=pos.coords.latitude.toFixed(6);
+    const lng=pos.coords.longitude.toFixed(6);
+    const url=`https://maps.google.com/?q=${lat},${lng}`;
+    const msg=encodeURIComponent("🐾 發現 Lumi！目前位置："+url);
+    window.location.href=`sms:0979311629?body=${msg}`;
+    resetGPS();
+  },()=>{
+    alert(t.gpsError);
+    resetGPS();
+  },{enableHighAccuracy:true,timeout:8000,maximumAge:0});
+}
+
+function resetGPS(){
+  const btn=document.getElementById("gps-btn");
+  btn.disabled=false;
+  btn.innerText=i18n[lang].gpsBtn;
+}
+</script>
+
 </body>
 </html>
